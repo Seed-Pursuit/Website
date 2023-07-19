@@ -8,10 +8,10 @@ function App() {
   return (
     <div>
       <Router>
-      <Routes>
       <div>
         <NavBar/>
       </div>
+      <Routes>
         <Route path='/' element={<Home/>} exact/>
       </Routes>
       <div>
