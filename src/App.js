@@ -1,22 +1,26 @@
-import { Route, BrowserRouter as Router, Routes} from 'react-router-dom';
-import './App.css';
-import Home from './components/Home';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import NavBar from './components/Navbar';
 import Footer from './components/Footer';
-import NavBar from './components/NavBar';
+import LandingPage from './page/LandingPage';
+import HomePage from './page/HomePage'; 
+import { useAuth0 } from '@auth0/auth0-react'; 
 
 function App() {
+  const { isAuthenticated } = useAuth0(); 
+
   return (
-    <div>
+    <div className="bg-soft min-h-screen">
       <Router>
-      <div>
-        <NavBar/>
-      </div>
-      <Routes>
-        <Route path='/' element={<Home/>} exact/>
-      </Routes>
-      <div>
-        <Footer/>
-      </div>
+        <div>
+          <NavBar />
+        </div>
+        <Routes>
+          <Route path='/' element={isAuthenticated ? <HomePage /> : <LandingPage />} exact />
+        </Routes>
+        <div>
+          <Footer />
+        </div>
       </Router>
     </div>
   );
