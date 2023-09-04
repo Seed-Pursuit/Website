@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { useAuth0 } from '@auth0/auth0-react';
 import image from '../assets/Logo/image.png';
 import Frame4 from '../assets/Frame 4.svg';
-import Features from '../assets/Features.svg';
 import Investors from '../assets/Investors.png';
 import Individuals from '../assets/Individuals.png';
 import Startup from '../assets/Startups.png';
 import Orange from '../components/buttons/Orange';
 import Red from '../components/buttons/Red';
 import DarkBlue from '../components/buttons/DarkBlue';
+import Features from '../assets/FeaturesNew.svg';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -40,13 +40,21 @@ const Landing = () => {
           {isAuthenticated ? 'Logged In' : 'Join Now'}
         </motion.button>
       </div>
-
       <div className="max-w-4xl mx-auto py-20 align-center text-center">
         <img src={image} alt='seed-pursuit' height={300} />
-        <div className='w-40'>
-        {/* Call to action btn */}
-          <Orange text="Join Now"/>
-        </div>
+        <motion.button
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          whileHover="hover"
+          onClick={isAuthenticated ? () => alert('You are already logged in.') : loginWithRedirect}
+          variants={buttonVariants}
+        >
+          <div className='w-40'>
+            {/* Call to action btn */}
+            <Orange text="Join Now" />
+          </div>
+        </motion.button>
         <div className='py-10'>
           <motion.img
             src={Frame4}
@@ -57,14 +65,9 @@ const Landing = () => {
           />
         </div>
 
-        <div className='py-10'>
-          <motion.img
-            src={Features}
-            alt='frame'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          />
+        {/* Features */}
+        <div>
+          <img src={Features} alt='Features' className='svg-animation'/>
         </div>
 
         <div className='py-10'>
@@ -96,10 +99,12 @@ const Landing = () => {
             transition={{ delay: 0.5, duration: 1 }}
           />
         </div>
-        <DarkBlue link="apply" text="Click me"/>
-          <div className='px-60 text-align'>
-            <Red text="Apply as a developer"/>
-          </div>
+        <DarkBlue link="apply" text="Click me" />
+        <div className='px-60 text-align'>
+          <Red text="Apply as a developer" link="apply" />
+        </div>
+        <div>
+        </div>
       </div>
     </div>
   );
