@@ -7,7 +7,9 @@ import Features from '../assets/Features.svg';
 import Investors from '../assets/Investors.png';
 import Individuals from '../assets/Individuals.png';
 import Startup from '../assets/Startups.png';
-import btn from '../assets/Buttons/apply_as_developer.svg';
+import Orange from '../components/buttons/Orange';
+import Red from '../components/buttons/Red';
+import DarkBlue from '../components/buttons/DarkBlue';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -39,9 +41,12 @@ const Landing = () => {
         </motion.button>
       </div>
 
-      <div className="max-w-4xl mx-auto py-20 text-center">
+      <div className="max-w-4xl mx-auto py-20 align-center text-center">
         <img src={image} alt='seed-pursuit' height={300} />
-
+        <div className='w-40'>
+        {/* Call to action btn */}
+          <Orange text="Join Now"/>
+        </div>
         <div className='py-10'>
           <motion.img
             src={Frame4}
@@ -91,18 +96,10 @@ const Landing = () => {
             transition={{ delay: 0.5, duration: 1 }}
           />
         </div>
-
-        <div className='py-10'>
-          <motion.img
-            src={btn}
-            alt='frame'
-            className="hover-3d-button"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)", transform: "translateY(-5px)" }} // 3D effect on hover
-          />
-        </div>
+        <DarkBlue link="apply" text="Click me"/>
+          <div className='px-60 text-align'>
+            <Red text="Apply as a developer"/>
+          </div>
       </div>
     </div>
   );
