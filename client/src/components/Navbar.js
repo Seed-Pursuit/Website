@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-opacity-60 backdrop-blur-md bg-white fixed w-full">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-3">
-          <div className="text-2xl font-heading text-purple">
+          <div className="text-2xl font-heading text-purple flex">
             <Link to="/">
               <img src={logo} alt='logo' className='w-10' />
             </Link>

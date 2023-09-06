@@ -10,6 +10,8 @@ import Orange from '../components/buttons/Orange';
 import Red from '../components/buttons/Red';
 import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
+import cn from 'classnames';
+import TypingText from '../components/design/TypingText';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -27,6 +29,7 @@ const Landing = () => {
   return (
     <div className="bg-soft min-h-screen flex flex-col items-center justify-center">
       <div className="absolute top-4 right-4">
+
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -40,7 +43,12 @@ const Landing = () => {
           {isAuthenticated ? 'Logged In' : 'Join Now'}
         </motion.button>
       </div>
-      <div className="max-w-4xl mx-auto py-20 align-center text-center">
+
+      {/* Typing effect */}
+      <div className='py-10' />
+      <TypingText />
+
+      <div className="max-w-4xl mx-auto py-1                                 0 align-center text-center">
         <img src={image} alt='seed-pursuit' height={300} />
         <motion.button
           initial={{ opacity: 0, x: 20 }}
@@ -50,6 +58,8 @@ const Landing = () => {
           onClick={isAuthenticated ? () => alert('You are already logged in.') : loginWithRedirect}
           variants={buttonVariants}
         >
+
+
           <div className='w-40'>
             {/* Call to action btn */}
             <Orange text="Join Now" />
@@ -67,7 +77,7 @@ const Landing = () => {
 
         {/* Features */}
         <div>
-          <img src={Features} alt='Features' className='svg-animation'/>
+          <img src={Features} alt='Features' className='svg-animation' />
         </div>
 
         <div className='py-10'>

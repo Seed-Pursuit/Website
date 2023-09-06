@@ -17,4 +17,9 @@
       color: #000; 
     }
   }
+
+
+  .font-animate {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24705882352941178);
+  }  
   
