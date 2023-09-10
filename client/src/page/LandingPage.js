@@ -12,6 +12,7 @@ import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
 import cn from 'classnames';
 import TypingText from '../components/design/TypingText';
+import Orange2 from '../components/buttons/Orange2';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -58,7 +59,6 @@ const Landing = () => {
           onClick={isAuthenticated ? () => alert('You are already logged in.') : loginWithRedirect}
           variants={buttonVariants}
         >
-
 
           <div className='w-40'>
             {/* Call to action btn */}
@@ -108,6 +108,9 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           />
+        </div>
+        <div>
+          
         </div>
         <DarkBlue link="apply" text="Click me" />
         <div className='px-60 text-align'>
