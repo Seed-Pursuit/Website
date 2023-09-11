@@ -10,7 +10,6 @@ import Orange from '../components/buttons/Orange';
 import Red from '../components/buttons/Red';
 import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
-import cn from 'classnames';
 import TypingText from '../components/design/TypingText';
 import Orange2 from '../components/buttons/Orange2';
 
@@ -109,9 +108,8 @@ const Landing = () => {
             transition={{ delay: 0.5, duration: 1 }}
           />
         </div>
-        <div>
-          
-        </div>
+        
+        {/* Apply as a developer */}
         <DarkBlue link="apply" text="Click me" />
         <div className='px-60 text-align'>
           <Red text="Apply as a developer" link="apply" />
