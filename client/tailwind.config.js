@@ -29,7 +29,30 @@ module.exports = {
         'pink': '#F32E7D',
         'orange': '#FB7A5A',
       },
+      "spacing": {},
+      "fontFamily": {
+        "subheading": "'Poor Richard'",
+        "tiny": "Poppins",
+        "heading": "Righteous"
+      },
+      "borderRadius": {
+        "31xl": "50px",
+        "71xl-5": "90.5px",
+        "10xs": "3px",
+        "87xl": "106px",
+        "xl": "20px"
+      }
     },
+    "fontSize": {
+      "16xl": "35px",
+      "xs": "12px",
+      "lg": "18px",
+      "26xl": "45px",
+      "inherit": "inherit"
+    },
+    "corePlugins": {
+      "preflight": false
+    }
   },
   plugins: [],
 };

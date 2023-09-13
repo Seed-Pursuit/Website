@@ -12,6 +12,7 @@ import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
 import TypingText from '../components/design/TypingText';
 import Orange2 from '../components/buttons/Orange2';
+import { InfoCard } from '../components/card/InfoCard';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -78,7 +79,7 @@ const Landing = () => {
           <img src={Features} alt='Features' className='svg-animation' />
         </div>
 
-        <div className='py-10'>
+        {/* <div className='py-10'>
           <motion.img
             src={Investors}
             alt='frame'
@@ -86,9 +87,9 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           />
-        </div>
+        </div> */}
 
-        <div className='py-10'>
+        {/* <div className='py-10'>
           <motion.img
             src={Startup}
             alt='frame'
@@ -96,9 +97,9 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           />
-        </div>
+        </div> */}
 
-        <div className='py-10'>
+        {/* <div className='py-10'>
           <motion.img
             src={Individuals}
             alt='frame'
@@ -106,7 +107,12 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           />
+        </div> */}
+
+        <div className='py-50 align-center'>
+        <InfoCard/>
         </div>
+
 
         {/* Apply as a developer */}
         <div className='px-60 text-align'>
