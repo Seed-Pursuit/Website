@@ -12,7 +12,8 @@ import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
 import TypingText from '../components/design/TypingText';
 import Orange2 from '../components/buttons/Orange2';
-import { InfoCard } from '../components/card/InfoCard';
+import { StartupInfoCard } from '../components/card/StartupInfoCard';
+import { RedRect } from '../components/buttons/RedRect';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -108,11 +109,8 @@ const Landing = () => {
             transition={{ delay: 0.5, duration: 1 }}
           />
         </div> */}
-
-        <div className='py-50 align-center'>
-        <InfoCard/>
-        </div>
-
+        <RedRect text="investnow"/>
+        <StartupInfoCard/>
 
         {/* Apply as a developer */}
         <div className='px-60 text-align'>

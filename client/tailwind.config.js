@@ -3,12 +3,6 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      fontFamily: {
-        heading: ['righteous', 'sans'],
-        subheading: ['poor richard', 'serif'],
-        normal: ['poppins', 'sans'],
-        'tiny-text': ['poppins', 'sans'],
-      },
       fontSize: {
         'heading': '45px',
         'subheading': '35px',

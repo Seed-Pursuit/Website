@@ -1,6 +1,6 @@
-import "./InfoCard.css";
+import "./StartupInfoCard.css";
 
-export const InfoCard = ({ ...props }) => {
+export const StartupInfoCard = ({ ...props }) => {
   return (
     <div className="for-startup-info-card">
       <svg
@@ -68,9 +68,9 @@ export const InfoCard = ({ ...props }) => {
       </div>
       <div className="for-startup">For Startup </div>
       <div className="sprout"></div>
-      <img className="hops" src="hops.png" alt=""/>
-      <img className="hops2" src="hops2.png" alt=""/>
-      <img className="hops3" src="hops3.png" alt=""/>
+      <img className="hops" src="hops.png" alt="" />
+      <img className="hops2" src="hops2.png" alt="" />
+      <img className="hops3" src="hops3.png" alt="" />
       <svg
         className="arrow-3"
         width="46"
