@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['righteous', 'sans'],
+        subheading: ['poor richard', 'serif'],
+        normal: ['poppins', 'sans'],
+        'tiny-text': ['poppins', 'sans'],
+      },
       fontSize: {
         'heading': '45px',
         'subheading': '35px',
@@ -24,11 +30,7 @@ module.exports = {
         'orange': '#FB7A5A',
       },
       "spacing": {},
-      "fontFamily": {
-        "subheading": "'Poor Richard'",
-        "tiny": "Poppins",
-        "heading": "Righteous"
-      },
+      
       "borderRadius": {
         "31xl": "50px",
         "71xl-5": "90.5px",
@@ -43,6 +45,7 @@ module.exports = {
       "lg": "18px",
       "26xl": "45px",
       "inherit": "inherit"
+
     },
     "corePlugins": {
       "preflight": false

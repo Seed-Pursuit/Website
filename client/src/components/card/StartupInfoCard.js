@@ -1,12 +1,15 @@
 import "./StartupInfoCard.css";
+import Hops from "../../assets/Hops.png";
+import { Link } from "react-router-dom";
 
-export const StartupInfoCard = ({ ...props }) => {
+export const StartupInfoCard = () => {
   return (
     <div className="for-startup-info-card">
+      {/* black rectangle */}
       <svg
-        className="rectangle-12"
-        width="1166"
-        height="516"
+        className="rectangle-black"
+        width="1150"
+        height="520"
         viewBox="0 0 1166 516"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -55,22 +58,27 @@ export const StartupInfoCard = ({ ...props }) => {
           </filter>
         </defs>
       </svg>
-
-      <div className="rectangle-13"></div>
+      {/* button */}
+      <Link>
+        <div className="rectangle-13"></div>
+      </Link>
+      {/* Features */}
       <div className="transparent-funding">Transparent funding </div>
       <div className="exposure-to-investors">Exposure to investors </div>
       <div className="access-to-resources-networking">
         Access to resources &amp; Networking{" "}
       </div>
-      <div className="get-funded">Get Funded </div>
+      <Link>
+        <div className="get-funded">Get Funded </div>
+      </Link>
       <div className="turn-your-vision-into-reality">
         Turn Your Vision into Reality{" "}
       </div>
       <div className="for-startup">For Startup </div>
-      <div className="sprout"></div>
-      <img className="hops" src="hops.png" alt="" />
-      <img className="hops2" src="hops2.png" alt="" />
-      <img className="hops3" src="hops3.png" alt="" />
+      <img className="hops" src={Hops} alt="" />
+      <img className="hops2" src={Hops} alt="" />
+      <img className="hops3" src={Hops} alt="" />
+
       <svg
         className="arrow-3"
         width="46"

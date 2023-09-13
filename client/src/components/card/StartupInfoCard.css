@@ -1,95 +1,91 @@
-.for-startup-info-card,
-.for-startup-info-card * {
-  box-sizing: border-box;
+:root {
+  --orange: #fb7a5a;
+  --black: #22181c;
+  --red: #ef626c;
+  --soft: #ffede1;
+  --normal: 400 18px "Poppins", sans-serif;
+  --subheading: 400 35px "Poor Richard", sans-serif;
+  --heading: 400 45px "Righteous", sans-serif;
 }
-.for-startup-info-card {
-  position: absolute;
-  inset: 0;
-}
-.rectangle-12 {
+
+.rectangle {
   border-radius: 0px;
-  position: absolute;
-  left: 57px;
-  top: 2533px;
   overflow: visible;
 }
+
 .rectangle-13 {
-  background: var(--orange, #fb7a5a);
+  background: var(--orange);
   border-radius: 20px 0px 20px 0px;
-  width: 196px;
-  height: 43px;
+  width: 250px;
+  height: 45px;
   position: absolute;
-  left: 771px;
-  top: 2911.19px;
+  right: 350px;
+  top: 1850px;
   box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
 }
-.transparent-funding {
-  color: #ffffff;
-  text-align: left;
-  font: var(--normal, 400 18px "Poppins", sans-serif);
-  position: absolute;
-  left: 771px;
-  top: 2706.19px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+
+.rectangle-13:hover {
+  box-shadow: inset 0px 8px 8px 0px rgba(0, 0, 0, 0.4); 
+  transform: translateY(-4px);
 }
-.exposure-to-investors {
-  color: #ffffff;
-  text-align: left;
-  font: var(--normal, 400 18px "Poppins", sans-serif);
-  position: absolute;
-  left: 771px;
-  top: 2761.19px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.access-to-resources-networking {
-  color: #ffffff;
-  text-align: left;
-  font: var(--normal, 400 18px "Poppins", sans-serif);
-  position: absolute;
-  left: 771px;
-  top: 2816.19px;
-  width: 329px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+
+/* Specific styles for elements */
+.transparent-funding,
+.exposure-to-investors,
+.access-to-resources-networking,
 .get-funded {
-  color: var(--black, #22181c);
+  color: #ffffff;
   text-align: left;
-  font: var(--normal, 400 18px "Poppins", sans-serif);
+  font: var(--normal);
   position: absolute;
-  left: 796px;
-  top: 2921.19px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
-.turn-your-vision-into-reality {
-  color: var(--red, #ef626c);
-  text-align: center;
-  font: var(--subheading, 400 35px "Poor Richard", sans-serif);
-  position: absolute;
-  left: 657px;
-  top: 2620.19px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.transparent-funding {
+  right: 300px;
+  top: 1650px;
 }
+
+.exposure-to-investors {
+  right: 295px;
+  top: 1700px;
+}
+
+.access-to-resources-networking {
+  right: 155px;
+  top: 1750px;
+  width: 329px;
+}
+
+.get-funded {
+  color: var(--black);
+  right: 455px;
+  top: 1855px;
+}
+
+.turn-your-vision-into-reality,
 .for-startup {
-  color: var(--soft, #ffede1);
   text-align: center;
-  font: var(--heading, 400 45px "Righteous", sans-serif);
   position: absolute;
-  left: 723px;
-  top: 2564.19px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.turn-your-vision-into-reality {
+  color: var(--red);
+  font: var(--subheading);
+  left: 920px;
+  top: 1570px;
+}
+
+.for-startup {
+  color: var(--soft);
+  font: var(--heading);
+  left: 1000px;
+  top: 1500px;
+}
+
 .sprout {
   width: 100px;
   height: 100px;
@@ -97,39 +93,37 @@
   left: 628px;
   top: 2692.19px;
 }
-.hops {
-  width: 43px;
-  height: 55px;
-  position: absolute;
-  left: 706px;
-  top: 2692.19px;
-  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.hops2 {
-  width: 43px;
-  height: 55px;
-  position: absolute;
-  left: 706px;
-  top: 2747.19px;
-  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+
+.hops,
+.hops2,
 .hops3 {
   width: 43px;
   height: 55px;
   position: absolute;
-  left: 706px;
-  top: 2802.19px;
-  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  right: 500px;
 }
+
+.hops {
+  top: 1650px;
+}
+
+.hops2 {
+  top: 1700px;
+}
+
+.hops3 {
+  top: 1750px;
+}
+
 .arrow-3 {
   position: absolute;
-  left: 908px;
-  top: 2930.19px;
-  overflow: visible;
+  right: 400px;
+  top: 1865px;
 }
+
 .capa-1 {
   position: absolute;
-  left: 163px;
-  top: 2581.19px;
+  left: 400px;
+  top: 1500px;
   overflow: visible;
 }
