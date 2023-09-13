@@ -10,7 +10,7 @@ function App() {
   const { isAuthenticated } = useAuth0(); 
 
   return (
-    <div className="bg-soft min-h-screen">
+    <div className="bg-classic min-h-screen">
       <Router>
         <div>
           <NavBar />

@@ -27,9 +27,8 @@ const Landing = () => {
   };
 
   return (
-    <div className="bg-soft min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-classic min-h-screen flex flex-col items-center justify-center">
       <div className="absolute top-4 right-4">
-
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -48,7 +47,7 @@ const Landing = () => {
       <div className='py-10' />
       <TypingText />
 
-      <div className="max-w-4xl mx-auto py-1                                 0 align-center text-center">
+      <div className="max-w-4xl mx-auto py-1 align-center text-center">
         <img src={image} alt='seed-pursuit' height={300} />
         <motion.button
           initial={{ opacity: 0, x: 20 }}
@@ -108,9 +107,8 @@ const Landing = () => {
             transition={{ delay: 0.5, duration: 1 }}
           />
         </div>
-        
+
         {/* Apply as a developer */}
-        <DarkBlue link="apply" text="Click me" />
         <div className='px-60 text-align'>
           <Red text="Apply as a developer" link="apply" />
         </div>
