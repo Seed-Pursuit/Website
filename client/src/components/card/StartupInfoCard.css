@@ -1,0 +1,129 @@
+:root {
+  --orange: #fb7a5a;
+  --black: #22181c;
+  --red: #ef626c;
+  --soft: #ffede1;
+  --normal: 400 18px "Poppins", sans-serif;
+  --subheading: 400 35px "Poor Richard", sans-serif;
+  --heading: 400 45px "Righteous", sans-serif;
+}
+
+.rectangle {
+  border-radius: 0px;
+  overflow: visible;
+}
+
+.rectangle-13 {
+  background: var(--orange);
+  border-radius: 20px 0px 20px 0px;
+  width: 250px;
+  height: 45px;
+  position: absolute;
+  right: 350px;
+  top: 1850px;
+  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.rectangle-13:hover {
+  box-shadow: inset 0px 8px 8px 0px rgba(0, 0, 0, 0.4); 
+  transform: translateY(-4px);
+}
+
+/* Specific styles for elements */
+.transparent-funding,
+.exposure-to-investors,
+.access-to-resources-networking,
+.get-funded {
+  color: #ffffff;
+  text-align: left;
+  font: var(--normal);
+  position: absolute;
+}
+
+.transparent-funding {
+  right: 300px;
+  top: 1650px;
+}
+
+.exposure-to-investors {
+  right: 295px;
+  top: 1700px;
+}
+
+.access-to-resources-networking {
+  right: 155px;
+  top: 1750px;
+  width: 329px;
+}
+
+.get-funded {
+  color: var(--black);
+  right: 455px;
+  top: 1855px;
+}
+
+.turn-your-vision-into-reality,
+.for-startup {
+  text-align: center;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.turn-your-vision-into-reality {
+  color: var(--red);
+  font: var(--subheading);
+  left: 920px;
+  top: 1570px;
+}
+
+.for-startup {
+  color: var(--soft);
+  font: var(--heading);
+  left: 1000px;
+  top: 1500px;
+}
+
+.sprout {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 628px;
+  top: 2692.19px;
+}
+
+.hops,
+.hops2,
+.hops3 {
+  width: 43px;
+  height: 55px;
+  position: absolute;
+  right: 500px;
+}
+
+.hops {
+  top: 1650px;
+}
+
+.hops2 {
+  top: 1700px;
+}
+
+.hops3 {
+  top: 1750px;
+}
+
+.arrow-3 {
+  position: absolute;
+  right: 400px;
+  top: 1865px;
+}
+
+.capa-1 {
+  position: absolute;
+  left: 400px;
+  top: 1500px;
+  overflow: visible;
+}

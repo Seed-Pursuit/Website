@@ -12,6 +12,8 @@ import DarkBlue from '../components/buttons/DarkBlue';
 import Features from '../assets/FeaturesNew.svg';
 import TypingText from '../components/design/TypingText';
 import Orange2 from '../components/buttons/Orange2';
+import { StartupInfoCard } from '../components/card/StartupInfoCard';
+import { RedRect } from '../components/buttons/RedRect';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -60,7 +62,7 @@ const Landing = () => {
 
           <div className='w-40'>
             {/* Call to action btn */}
-            <Orange text="Join Now" />
+            <Orange text="Join Now" link="homepage" />
           </div>
         </motion.button>
         <div className='py-10'>
@@ -77,37 +79,10 @@ const Landing = () => {
         <div>
           <img src={Features} alt='Features' className='svg-animation' />
         </div>
-
+        {/* Info Card - Startup */}
         <div className='py-10'>
-          <motion.img
-            src={Investors}
-            alt='frame'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          />
+          <StartupInfoCard />
         </div>
-
-        <div className='py-10'>
-          <motion.img
-            src={Startup}
-            alt='frame'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          />
-        </div>
-
-        <div className='py-10'>
-          <motion.img
-            src={Individuals}
-            alt='frame'
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          />
-        </div>
-
         {/* Apply as a developer */}
         <div className='px-60 text-align'>
           <Red text="Apply as a developer" link="apply" />
