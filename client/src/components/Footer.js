@@ -5,7 +5,7 @@ import Logo from '../assets/Logo/logo_seed_pursuit.png';
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center  items-center text-center px-6">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center  px-6">
         <div className="w-full lg:w-1/4 lg:mb-0 mb-8">
           <img
             className="w-24 h-24 rounded-full border-4 border-green-400 shadow-lg"

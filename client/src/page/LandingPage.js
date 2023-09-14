@@ -13,7 +13,6 @@ import Features from '../assets/FeaturesNew.svg';
 import TypingText from '../components/design/TypingText';
 import Orange2 from '../components/buttons/Orange2';
 import { StartupInfoCard } from '../components/card/StartupInfoCard';
-import { RedRect } from '../components/buttons/RedRect';
 
 const Landing = () => {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -49,7 +48,7 @@ const Landing = () => {
       <div className='py-10' />
       <TypingText />
 
-      <div className="max-w-4xl mx-auto py-1 align-center text-center">
+      <div className="max-w-5xl align-center text-center">
         <img src={image} alt='seed-pursuit' height={300} />
         <motion.button
           initial={{ opacity: 0, x: 20 }}
@@ -60,9 +59,9 @@ const Landing = () => {
           variants={buttonVariants}
         >
 
-          <div className='w-40'>
+          <div className='w-40' onClick={isAuthenticated ? "": loginWithRedirect}>
             {/* Call to action btn */}
-            <Orange text="Join Now" link="homepage" />
+            <Orange text="Join Now" />
           </div>
         </motion.button>
         <div className='py-10'>
@@ -76,7 +75,7 @@ const Landing = () => {
         </div>
 
         {/* Features */}
-        <div>
+        <div className='px-20'>
           <img src={Features} alt='Features' className='svg-animation' />
         </div>
         {/* Info Card - Startup */}
@@ -84,7 +83,7 @@ const Landing = () => {
           <StartupInfoCard />
         </div>
         {/* Apply as a developer */}
-        <div className='px-60 text-align'>
+        <div className='px-80 text-align'>
           <Red text="Apply as a developer" link="apply" />
         </div>
         <div>

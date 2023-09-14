@@ -16,11 +16,11 @@
 .rectangle-13 {
   background: var(--orange);
   border-radius: 20px 0px 20px 0px;
-  width: 250px;
+  width: 200px;
   height: 45px;
   position: absolute;
-  right: 350px;
-  top: 1850px;
+  right: 400px;
+  top: 1900px;
   box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.3s ease, transform 0.3s ease; 
 }
@@ -30,7 +30,6 @@
   transform: translateY(-4px);
 }
 
-/* Specific styles for elements */
 .transparent-funding,
 .exposure-to-investors,
 .access-to-resources-networking,
@@ -42,25 +41,25 @@
 }
 
 .transparent-funding {
-  right: 300px;
-  top: 1650px;
-}
-
-.exposure-to-investors {
-  right: 295px;
+  right: 400px;
   top: 1700px;
 }
 
-.access-to-resources-networking {
-  right: 155px;
+.exposure-to-investors {
+  right: 395px;
   top: 1750px;
+}
+
+.access-to-resources-networking {
+  right: 255px;
+  top: 1800px;
   width: 329px;
 }
 
 .get-funded {
   color: var(--black);
   right: 455px;
-  top: 1855px;
+  top: 1905px;
 }
 
 .turn-your-vision-into-reality,
@@ -75,15 +74,15 @@
 .turn-your-vision-into-reality {
   color: var(--red);
   font: var(--subheading);
-  left: 920px;
-  top: 1570px;
+  right: 340px;
+  top: 1640px;
 }
 
 .for-startup {
   color: var(--soft);
   font: var(--heading);
-  left: 1000px;
-  top: 1500px;
+  right: 400px;
+  top: 1580px;
 }
 
 .sprout {
@@ -100,30 +99,25 @@
   width: 43px;
   height: 55px;
   position: absolute;
-  right: 500px;
+  right: 600px;
 }
 
 .hops {
-  top: 1650px;
-}
-
-.hops2 {
   top: 1700px;
 }
 
-.hops3 {
+.hops2 {
   top: 1750px;
 }
 
-.arrow-3 {
-  position: absolute;
-  right: 400px;
-  top: 1865px;
+.hops3 {
+  top: 1800px;
 }
+
 
 .capa-1 {
   position: absolute;
-  left: 400px;
-  top: 1500px;
+  left: 250px;
+  top: 1550px;
   overflow: visible;
 }

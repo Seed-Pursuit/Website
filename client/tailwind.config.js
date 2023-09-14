@@ -10,8 +10,9 @@ module.exports = {
         'tiny-text': ['poppins', 'sans'],
       },
       fontSize: {
+ 
         'heading': '45px',
-        'subheading': '35px',
+        'subheading': '40px',
         'normal': '18px',
         'tiny-text': '12px',
       },
@@ -38,14 +39,6 @@ module.exports = {
         "87xl": "106px",
         "xl": "20px"
       }
-    },
-    "fontSize": {
-      "16xl": "35px",
-      "xs": "12px",
-      "lg": "18px",
-      "26xl": "45px",
-      "inherit": "inherit"
-
     },
     "corePlugins": {
       "preflight": false

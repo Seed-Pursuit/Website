@@ -8,8 +8,8 @@ export const StartupInfoCard = () => {
       {/* black rectangle */}
       <svg
         className="rectangle-black"
-        width="1150"
-        height="520"
+        width="1000"
+        height="516"
         viewBox="0 0 1166 516"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,71 +69,15 @@ export const StartupInfoCard = () => {
         Access to resources &amp; Networking{" "}
       </div>
       <Link>
-        <div className="get-funded">Get Funded </div>
+        <div className="get-funded">Get Funded</div>
       </Link>
       <div className="turn-your-vision-into-reality">
-        Turn Your Vision into Reality{" "}
+        Turn Your Vision into Reality
       </div>
       <div className="for-startup">For Startup </div>
       <img className="hops" src={Hops} alt="" />
       <img className="hops2" src={Hops} alt="" />
       <img className="hops3" src={Hops} alt="" />
-
-      <svg
-        className="arrow-3"
-        width="46"
-        height="11"
-        viewBox="0 0 46 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          style={{ mixBlendMode: "hard-light" }}
-          filter="url(#filter0_d_165_913)"
-        >
-          <path
-            d="M12.0476 10.1936L11.4089 10.9631L11.7844 11.2747L12.261 11.1706L12.0476 10.1936ZM24.0952 7.56203L24.3086 8.53899L24.5846 8.47872L24.7882 8.28302L24.0952 7.56203ZM31.7619 0.193604V-0.806396H31.3593L31.069 -0.527388L31.7619 0.193604ZM46.7071 0.90071C47.0976 0.510186 47.0976 -0.122979 46.7071 -0.513503L40.3431 -6.87746C39.9526 -7.26799 39.3195 -7.26799 38.9289 -6.87746C38.5384 -6.48694 38.5384 -5.85378 38.9289 -5.46325L44.5858 0.193604L38.9289 5.85046C38.5384 6.24098 38.5384 6.87415 38.9289 7.26467C39.3195 7.6552 39.9526 7.6552 40.3431 7.26467L46.7071 0.90071ZM-0.638687 0.96307L11.4089 10.9631L12.6863 9.42414L0.638687 -0.575863L-0.638687 0.96307ZM12.261 11.1706L24.3086 8.53899L23.8818 6.58506L11.8342 9.21664L12.261 11.1706ZM24.7882 8.28302L32.4548 0.914595L31.069 -0.527388L23.4023 6.84103L24.7882 8.28302ZM31.7619 1.1936H46V-0.806396H31.7619V1.1936Z"
-            fill="#84DCCF"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_d_165_913"
-            x="-4.63867"
-            y="-7.17041"
-            width="55.6387"
-            height="26.4451"
-            filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
-          >
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feColorMatrix
-              in="SourceAlpha"
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              result="hardAlpha"
-            />
-            <feOffset dy="4" />
-            <feGaussianBlur stdDeviation="2" />
-            <feComposite in2="hardAlpha" operator="out" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="BackgroundImageFix"
-              result="effect1_dropShadow_165_913"
-            />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="effect1_dropShadow_165_913"
-              result="shape"
-            />
-          </filter>
-        </defs>
-      </svg>
 
       <svg
         className="capa-1"
