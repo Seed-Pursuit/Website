@@ -10,7 +10,6 @@ module.exports = {
         'tiny-text': ['poppins', 'sans'],
       },
       fontSize: {
- 
         'heading': '45px',
         'subheading': '40px',
         'normal': '18px',

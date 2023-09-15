@@ -83,7 +83,7 @@ const Landing = () => {
           <StartupInfoCard />
         </div>
         {/* Apply as a developer */}
-        <div className='px-80 text-align'>
+        <div className='px-80 text-align py-20'>
           <Red text="Apply as a developer" link="apply" />
         </div>
         <div>
