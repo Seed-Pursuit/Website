@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 
 const FindCoFounderPage = () => {
+    
     const { user, isAuthenticated, logout } = useAuth0();
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
