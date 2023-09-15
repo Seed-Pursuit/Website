@@ -5,4 +5,5 @@
 </p>
    <h2>🌟Tools and Technologies used</h2>
      <img src="https://skillicons.dev/icons?i=github,git,react,tailwind,html,css,js,vscode,solidity,firebase"/>
+<h1>SRS : <a href = "https://seed-pursuit.gitbook.io/srs/">https://seed-pursuit.gitbook.io/srs/</a></h1>
 </div>
