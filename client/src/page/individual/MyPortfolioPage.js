@@ -1,162 +1,261 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import app from '../../db/Firebase';
+import { get, getDatabase, push, ref } from 'firebase/database';
 import { useAuth0 } from '@auth0/auth0-react';
-import { motion } from 'framer-motion';
 
 const MyPortfolioPage = () => {
-    const { user, isAuthenticated, logout } = useAuth0();
+  const db = getDatabase(app);
+  const { user } = useAuth0();
 
-    const [portfolioData, setPortfolioData] = useState({
-        bio: '',
-        education: '',
-        experience: '',
-        skills: '',
-        contact: '',
-    });
+  const [formData, setFormData] = useState({
+    step: 1,
+    firstName: '',
+    lastName: '',
+    email: '',
+    pronouns: '',
+    bio: '',
+    linkedin: '',
+    github: '',
+    otherLinks: [],
+    place: '',
+    termsAgreed: false,
+  });
 
-    const buttonVariants = {
-        hover: {
-            scale: 1.1,
-            transition: {
-                duration: 0.3,
-            },
-        },
-    };
+  const [otherLink, setOtherLink] = useState('');
+  const [submissionStatus, setSubmissionStatus] = useState('');
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setPortfolioData({
-            ...portfolioData,
-            [name]: value,
-        });
-    };
+  const pushFormDataToFirebase = (formData) => {
+    const userId = user.sub; // You may want to use a unique user identifier here.
+    const userRef = ref(db, 'users/' + userId); // Update the database path as needed
+    push(userRef, formData)
+      .then((newRef) => {
+        console.log('Data added to Firebase with ID:', newRef.key);
+        setSubmissionStatus('Profile updated successfully');
+      })
+      .catch((error) => {
+        console.error('Error adding data to Firebase:', error);
+      });
+  };
 
-    const handleSaveChanges = () => {
-        // savePortfolioData(portfolioData);
-    };
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+    const updatedFormData = { ...formData };
 
-    return (
-        <div className="bg-soft min-h-screen py-20">
-            <div className="max-w-4xl mx-auto p-8">
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                    {/* User Profile */}
-                    {/* <img src={image} alt="seed-pursuit" height={300} /> */}
+    if (type === 'file') {
+      updatedFormData[name] = files[0];
+    } else {
+      updatedFormData[name] = value;
+    }
 
-                    <div className="flex items-center justify-between mb-4">
-                        <div>
-                            <h2 className="text-4xl font-subheading text-black flex">
-                                <div className="text-red">Welcome</div>, {user.name}
-                            </h2>
-                            <p className="text-gray font-normal">{user.email}</p>
-                        </div>
-                        <div>
-                            <img
-                                src={user.picture}
-                                alt="Profile"
-                                className="w-16 h-16 rounded-full"
-                            />
-                        </div>
-                    </div>
+    setFormData(updatedFormData);
+  };
 
-                    {/* My Portfolio Form */}
-                    <div className="mt-8">
-                        <h3 className="text-2xl font-subheading text-black mb-4">
-                            My Portfolio
-                        </h3>
+  const handleNext = () => {
+    setFormData((prevData) => ({ ...prevData, step: prevData.step + 1 }));
+  };
 
-                        <form>
-                            <div className="mb-4">
-                                <label htmlFor="bio" className="block text-lg font-normal">
-                                    Bio
-                                </label>
-                                <textarea
-                                    id="bio"
-                                    name="bio"
-                                    value={portfolioData.bio}
-                                    onChange={handleChange}
-                                    className="w-full border rounded-lg p-2"
-                                    rows="4"
-                                />
-                            </div>
+  const handlePrevious = () => {
+    setFormData((prevData) => ({ ...prevData, step: prevData.step - 1 }));
+  };
 
-                            <div className="mb-4">
-                                <label htmlFor="education" className="block text-lg font-normal">
-                                    Education
-                                </label>
-                                <textarea
-                                    id="education"
-                                    name="education"
-                                    value={portfolioData.education}
-                                    onChange={handleChange}
-                                    className="w-full border rounded-lg p-2"
-                                    rows="4"
-                                />
-                            </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-                            <div className="mb-4">
-                                <label htmlFor="experience" className="block text-lg font-normal">
-                                    Experience
-                                </label>
-                                <textarea
-                                    id="experience"
-                                    name="experience"
-                                    value={portfolioData.experience}
-                                    onChange={handleChange}
-                                    className="w-full border rounded-lg p-2"
-                                    rows="4"
-                                />
-                            </div>
+    const isSubmitted = true;
+    if (isSubmitted) {
+      pushFormDataToFirebase(formData);
+    }
+  };
 
-                            <div className="mb-4">
-                                <label htmlFor="skills" className="block text-lg font-normal">
-                                    Skills
-                                </label>
-                                <textarea
-                                    id="skills"
-                                    name="skills"
-                                    value={portfolioData.skills}
-                                    onChange={handleChange}
-                                    className="w-full border rounded-lg p-2"
-                                    rows="4"
-                                />
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="contact" className="block text-lg font-normal">
-                                    Contact Information
-                                </label>
-                                <textarea
-                                    id="contact"
-                                    name="contact"
-                                    value={portfolioData.contact}
-                                    onChange={handleChange}
-                                    className="w-full border rounded-lg p-2"
-                                    rows="4"
-                                />
-                            </div>
-
-                            {/* Save Changes Button */}
-                            <motion.button
-                                variants={buttonVariants}
-                                whileHover="hover"
-                                className="bg-greenish-black text-white py-4 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red mt-8"
-                                onClick={handleSaveChanges}
-                            >
-                                Save Changes
-                            </motion.button>
-                        </form>
-                    </div>
-
-                    {/* Logout Button */}
-                    <button
-                        onClick={() => logout({ returnTo: window.location.origin })}
-                        className="bg-red text-white py-2 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red float-right mt-4"
-                    >
-                        Logout
-                    </button>
+  return (
+    <div className="p-40 m-auto space-y-2">
+      {submissionStatus ? (
+        <div className="text-yellow-500 text-2xl font-bold">{submissionStatus}</div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <div className="h-2 bg-yellow-500" style={{ width: `${(formData.step - 1) * 25}%` }}></div>
+          </div>
+          {formData.step === 1 && (
+            <>
+              <div className="space-y-6 text-black">
+                <h2 className="text-2xl text-yellow-300 font-bold">Step 1: Personal Details</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-gray-300">First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="E.g., John"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="p-2 border border-gray-300 rounded w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300">Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="E.g., Doe"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="p-2 border border-gray-300 rounded w-full"
+                    />
+                  </div>
+                  {/* Add more fields here */}
                 </div>
-            </div>
-        </div>
-    );
+                <label className="block text-gray-300">Short Bio</label>
+                <textarea
+                  name="bio"
+                  placeholder="E.g., I'm passionate about..."
+                  value={formData.bio}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full h-24"
+                />
+              </div>
+            </>
+          )}
+
+          {formData.step === 2 && (
+            <>
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-yellow-300">Step 2: Shared Links and Reasons for Joining</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-300">LinkedIn Profile URL</label>
+                    <input
+                      type="text"
+                      name="linkedin"
+                      placeholder="E.g., https://www.linkedin.com/in/johndoe"
+                      value={formData.linkedin}
+                      onChange={handleChange}
+                      className="p-2 border border-gray-300 rounded w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300">GitHub Profile URL</label>
+                    <input
+                      type="text"
+                      name="github"
+                      placeholder="E.g., https://github.com/johndoe"
+                      value={formData.github}
+                      onChange={handleChange}
+                      className="p-2 border border-gray-300 rounded w-full"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-gray-300">Other Links (e.g., personal website)</label>
+                  <div className="flex space-x-2">
+                    <input
+                      type="text"
+                      value={otherLink}
+                      onChange={(e) => setOtherLink(e.target.value)}
+                      className="p-2 border border-gray-300 rounded flex-grow"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (otherLink) {
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            otherLinks: [...prevData.otherLinks, otherLink],
+                          }));
+                          setOtherLink(''); // Clear the input field after adding the link.
+                        }
+                      }}
+                      className="bg-yellow-500 text-white py-2 px-4 rounded"
+                    >
+                      Add Link
+                    </button>
+                  </div>
+                  {formData.otherLinks.map((link, index) => (
+                    <div key={index} className="flex space-x-2 py-2">
+                      <p>{index + 1}:</p>
+                      <input
+                        type="text"
+                        name={`otherLinks[${index}]`}
+                        value={link}
+                        onChange={(e) => {
+                          const updatedLinks = [...formData.otherLinks];
+                          updatedLinks[index] = e.target.value;
+                          setFormData({ ...formData, otherLinks: updatedLinks });
+                        }}
+                        placeholder="E.g., https://www.example.com"
+                        className="p-2 border border-gray-300 rounded flex-grow"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updatedLinks = [...formData.otherLinks];
+                          updatedLinks.splice(index, 1);
+                          setFormData((prevData) => ({
+                            ...prevData,
+                            otherLinks: updatedLinks,
+                          }));
+                        }}
+                        className="bg-red-500 text-white py-2 px-4 rounded"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+          {formData.step === 3 && (
+            <>
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-yellow-300">Step 3: Acknowledgment</h2>
+                <div className="space-y-2">
+                  <label className="block text-gray-300">
+                    <input
+                      type="checkbox"
+                      name="termsAgreed"
+                      checked={formData.termsAgreed}
+                      onChange={handleChange}
+                      className="mr-2"
+                    />
+                    I agree to the terms and conditions.
+                  </label>
+                </div>
+              </div>
+            </>
+          )}
+          <div className="grid grid-cols-2 gap-4">
+            {formData.step > 1 && (
+              <button
+                type="button"
+                onClick={handlePrevious}
+                className="bg-gray-300 text-gray-700 py-2 px-4 rounded"
+              >
+                Previous
+              </button>
+            )}
+            {formData.step < 3 && (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="bg-yellow-500 text-white py-2 px-4 rounded"
+              >
+                Next
+              </button>
+            )}
+          </div>
+          {formData.step === 3 && (
+            <button
+              type="submit"
+              className="bg-yellow-500 text-white py-2 px-4 mt-4 rounded"
+            >
+              Save Profile
+            </button>
+          )}
+        </form>
+      )}
+    </div>
+  );
 };
 
 export default MyPortfolioPage;

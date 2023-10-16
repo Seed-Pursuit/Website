@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: 'AIzaSyCAQEmYE0QpegcX5Y64TqG-8RcsfN8f0hY',
   authDomain: "seed-pursuit.firebaseapp.com",
   projectId: "seed-pursuit",
   storageBucket: "seed-pursuit.appspot.com",
@@ -13,3 +13,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export default app;
