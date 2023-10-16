@@ -25,7 +25,6 @@ function App() {
           <Route path='/start-up' element={isAuthenticated ? <StartupPortfolioHomePage/> : <LandingPage />} exact />
           <Route path='/my-portfolio' element={isAuthenticated ? <MyPortfolioPage/> : <LandingPage />} exact />
           <Route path='/find-co-founder' element={isAuthenticated ? <FindCoFounderPage/> : <LandingPage />} exact />
-
         </Routes>
         <div>
           <Footer />
