@@ -9,6 +9,7 @@ import InvestmentPortfolioHomePage from './page/invest/InvestmentPortfolioPage';
 import StartupPortfolioHomePage from './page/startup/StartupPortfolioPage';
 import MyPortfolioPage from './page/individual/MyPortfolioPage';
 import FindCoFounderPage from './page/social_media/FindCoFounderPage';
+import About from './page/About';
 
 function App() {
   const { isAuthenticated } = useAuth0(); 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/start-up' element={isAuthenticated ? <StartupPortfolioHomePage/> : <LandingPage />} exact />
           <Route path='/my-portfolio' element={isAuthenticated ? <MyPortfolioPage/> : <LandingPage />} exact />
           <Route path='/find-co-founder' element={isAuthenticated ? <FindCoFounderPage/> : <LandingPage />} exact />
+          <Route path='/about' element={<About/>} exact />
         </Routes>
         <div>
           <Footer />
