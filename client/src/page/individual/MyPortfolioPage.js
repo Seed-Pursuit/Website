@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import app from '../../db/Firebase';
-import { get, getDatabase, push, ref } from 'firebase/database';
+import { getDatabase, ref, get, set } from 'firebase/database';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const MyPortfolioPage = () => {
@@ -11,7 +11,7 @@ const MyPortfolioPage = () => {
     step: 1,
     firstName: '',
     lastName: '',
-    email: '',
+    email: user.email,
     pronouns: '',
     bio: '',
     linkedin: '',
@@ -24,16 +24,43 @@ const MyPortfolioPage = () => {
   const [otherLink, setOtherLink] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState('');
 
+  const sanitizeEmailForPath = (email) => {
+    return email.replace(/[^a-zA-Z0-9]/g, '_');
+  };
+
+  const checkIfUserDataExists = (userEmail) => {
+    const sanitizedEmail = sanitizeEmailForPath(userEmail);
+    const userRef = ref(db, `users/${sanitizedEmail}`);
+
+    get(userRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          setFormData(userData);
+        }
+      })
+      .catch((error) => {
+        console.error('Error checking user data:', error);
+      });
+  };
+
+  useEffect(() => {
+    // Check if user data already exists, and fetch it if it does
+    checkIfUserDataExists(formData.email);
+  }, [formData.email]);
+
   const pushFormDataToFirebase = (formData) => {
-    const userId = user.sub; // You may want to use a unique user identifier here.
-    const userRef = ref(db, 'users/' + userId); // Update the database path as needed
-    push(userRef, formData)
-      .then((newRef) => {
-        console.log('Data added to Firebase with ID:', newRef.key);
+    const userEmail = formData.email;
+    const sanitizedEmail = sanitizeEmailForPath(userEmail);
+    const userRef = ref(db, `users/${sanitizedEmail}`);
+
+    set(userRef, formData)
+      .then(() => {
+        console.log('Data added or updated to Firebase with email:', userEmail);
         setSubmissionStatus('Profile updated successfully');
       })
       .catch((error) => {
-        console.error('Error adding data to Firebase:', error);
+        console.error('Error adding/updating data to Firebase:', error);
       });
   };
 
@@ -74,7 +101,10 @@ const MyPortfolioPage = () => {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <div className="h-2 bg-yellow-500" style={{ width: `${(formData.step - 1) * 25}%` }}></div>
+            <div
+              className="h-2 bg-yellow-500"
+              style={{ width: `${(formData.step - 1) * 25}%` }}
+            ></div>
           </div>
           {formData.step === 1 && (
             <>
@@ -103,7 +133,6 @@ const MyPortfolioPage = () => {
                       className="p-2 border border-gray-300 rounded w-full"
                     />
                   </div>
-                  {/* Add more fields here */}
                 </div>
                 <label className="block text-gray-300">Short Bio</label>
                 <textarea
