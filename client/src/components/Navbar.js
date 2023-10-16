@@ -110,7 +110,7 @@ const Navbar = () => {
                 <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg p-2">
                   <ul className="py-2 space-y-2">
                     <li>
-                      <Link to="/grants">View Grants</Link>
+                      <Link to="https://pursuit-coin.vercel.app">View Grants</Link>
                     </li>
                     <li>
                       <Link to="/apply-grant">Apply for a Grant</Link>
