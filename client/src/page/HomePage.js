@@ -4,6 +4,23 @@ import { motion } from 'framer-motion';
 import image from '../assets/Logo/image.png';
 import { Link } from 'react-router-dom';
 
+const Card = ({ title, icon, variants, to }) => {
+  return (
+    <Link to={to}>
+      <motion.div
+        className="bg-greenish-black text-white p-4 rounded-lg text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red cursor-pointer"
+        variants={variants}
+        whileHover="hover"
+      >
+        <span role="img" aria-label="">
+          {icon}
+        </span>
+        &nbsp;{title}
+      </motion.div>
+    </Link>
+  );
+};
+
 const HomePage = () => {
   const { user, isAuthenticated, logout } = useAuth0();
 
@@ -31,72 +48,39 @@ const HomePage = () => {
               <p className="text-gray font-normal">{user.email}</p>
             </div>
             <div>
-              <img
-                src={user.picture}
-                alt="Profile"
-                className="w-16 h-16 rounded-full"
-              />
+              <img src={user.picture} alt="Profile" className="w-16 h-16 rounded-full" />
             </div>
           </div>
 
-          {/* Buttons */}
-          <div className="">
-            <div className="flex space-x-8 p-4">
-              <Link to="/invest">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  className="bg-greenish-black text-white py-4 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red"
-                >
-                  <span role="img" aria-label="">
-                    🤑
-                  </span>
-                  &nbsp;Investment Portfolio
-                </motion.button>
-              </Link>
+          {/* Card Components with Hover Effects */}
+          <div className="grid grid-cols-2 gap-8">
+            <Card
+              title="Investment Portfolio"
+              icon="🤑"
+              variants={buttonVariants}
+              to="/invest"
+            />
 
-              <Link to="/start-up">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  className="bg-greenish-black text-white py-4 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red"
-                >
-                  <span role="img" aria-label="">
-                    🚀
-                  </span>
-                  &nbsp;Startup Portfolio
-                </motion.button>
-              </Link>
-            </div>
+            <Card
+              title="Startup Portfolio"
+              icon="🚀"
+              variants={buttonVariants}
+              to="/start-up"
+            />
 
-            <div className="flex space-x-8 p-4">
-              <Link to="/my-portfolio">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  className="bg-greenish-black text-white py-4 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red"
-                >
-                  <span role="img" aria-label="">
-                    📈
-                  </span>
-                  &nbsp;My Portfolio
-                </motion.button>
-              </Link>
+            <Card
+              title="My Portfolio"
+              icon="📈"
+              variants={buttonVariants}
+              to="/my-portfolio"
+            />
 
-              <Link to="/find-co-founder">
-                <motion.button
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  className="bg-greenish-black text-white py-4 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red"
-                >
-                  <span role="img" aria-label="">
-                    🤝
-                  </span>
-                  &nbsp;Find a Co-founder
-                </motion.button>
-              </Link>
-
-            </div>
+            <Card
+              title="Find a Co-founder"
+              icon="🤝"
+              variants={buttonVariants}
+              to="/find-co-founder"
+            />
           </div>
 
           {/* Additional Content */}
@@ -115,7 +99,7 @@ const HomePage = () => {
           {/* Logout Button */}
           <button
             onClick={() => logout({ returnTo: window.location.origin })}
-            className="bg-red text-white py-2 px-4 rounded-full text-lg hover:bg-red-dark focus:outline-none focus:ring-2 focus:ring-red float-right mt-4"
+            className="bg-red text-white py-2 px-4 rounded-full text-lg hover-bg-red-dark focus:outline-none focus:ring-2 focus:ring-red float-right mt-4"
           >
             Logout
           </button>

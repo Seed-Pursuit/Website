@@ -59,7 +59,7 @@ const Landing = () => {
           variants={buttonVariants}
         >
 
-          <div className='w-40' onClick={isAuthenticated ? "": loginWithRedirect}>
+          <div className='w-40' onClick={isAuthenticated ? "" : loginWithRedirect}>
             {/* Call to action btn */}
             <Orange text="Join Now" />
           </div>
